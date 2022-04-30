@@ -36,12 +36,12 @@ public class PacienteDAOImpl implements GenericDAO {
         Paciente paciente = (Paciente) object;
         PreparedStatement stmt = null;
 
-        String sql = "insert into paciente (nome, endereco, tiposanguineo, peso, cidade, uf, cep) values (?,?,?,?,?,?,?);";
+        String sql = "insert into paciente (idcadastro, idtiposanguineo, peso) values (?,?,?);";
 
         try {
             stmt = conn.prepareStatement(sql);
             
-            stmt.setString(1, paciente.getNome());
+            stmt.setString(1, paciente.getId());
             stmt.setString(2, paciente.getEndereco());
             stmt.setString(3, paciente.getTipoSanguineo());
             stmt.setDouble(4, paciente.getPeso());

@@ -1,7 +1,7 @@
 
 package br.com.projetopaciente.model;
 
-class Endereco {
+public class Endereco {
     private Integer idEndereco;
     private String endereco;
     private String cep;
