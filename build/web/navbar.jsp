@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ClÃ­nica MÃ©dica - Dashboard</title>
+    <title>Clínica Médica - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +35,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">ClÃ­nica MÃ©dica <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Clíica Médica <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
@@ -68,7 +68,7 @@
                 <div id="collapsePaciente" class="collapse" aria-labelledby="headingPaciente"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Operaï¿½ï¿½es de Pacientes:</h6>
+                        <h6 class="collapse-header">Operações de Pacientes:</h6>
                         <a class="collapse-item" href="cadastrarpaciente.jsp">Cadastrar</a>
                         <a class="collapse-item" href="ListarPaciente">Listar</a>
                     </div>
