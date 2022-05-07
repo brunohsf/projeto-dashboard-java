@@ -5,7 +5,11 @@
         <group>
             <file>file:/C:/FATEC/Aula%20de%20Sábado%20do%20Boer/projeto-dashboard-java/src/java/br/com/projetopaciente/dao/PacienteDAOImpl.java</file>
             <file>file:/C:/FATEC/Aula%20de%20Sábado%20do%20Boer/projeto-dashboard-java/src/java/br/com/projetopaciente/model/Paciente.java</file>
+            <file>file:/C:/FATEC/Aula%20de%20Sábado%20do%20Boer/projeto-dashboard-java/src/java/br/com/projetopaciente/dao/CadastroDAOImpl.java</file>
             <file>file:/C:/FATEC/Aula%20de%20Sábado%20do%20Boer/projeto-dashboard-java/src/java/br/com/projetopaciente/util/ConnectionFactory.java</file>
+            <file>file:/C:/FATEC/Aula%20de%20Sábado%20do%20Boer/projeto-dashboard-java/src/java/br/com/projetopaciente/model/TipoSanguineo.java</file>
+            <file>file:/C:/FATEC/Aula%20de%20Sábado%20do%20Boer/projeto-dashboard-java/src/java/br/com/projetopaciente/dao/EnderecoDAOImpl.java</file>
+            <file>file:/C:/FATEC/Aula%20de%20Sábado%20do%20Boer/projeto-dashboard-java/src/java/br/com/projetopaciente/controller/CadastrarPaciente.java</file>
         </group>
     </open-files>
 </project-private>

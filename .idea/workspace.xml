@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="378c375d-8dbe-4e41-8b17-2cd61d0e32a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/controller/ListarCombos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/dao/TipoSanguineoDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/dao/UfDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/model/Cadastro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/model/Endereco.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/model/TipoSanguineo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/model/Uf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/util/scriptbd.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/glassfish-web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/web/WEB-INF/classes/br/com/projetopaciente/controller/CadastrarPaciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/WEB-INF/classes/br/com/projetopaciente/controller/CadastrarPaciente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/web/WEB-INF/classes/br/com/projetopaciente/dao/PacienteDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/WEB-INF/classes/br/com/projetopaciente/dao/PacienteDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/web/WEB-INF/classes/br/com/projetopaciente/model/Paciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/WEB-INF/classes/br/com/projetopaciente/model/Paciente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/web/WEB-INF/lib/postgresql-42.2.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/web/cadastrarpaciente.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/cadastrarpaciente.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/web/navbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/navbar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/ProjetoPaciente.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/br/com/projetopaciente/controller/CadastrarPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/controller/CadastrarPaciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/br/com/projetopaciente/dao/PacienteDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/dao/PacienteDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/br/com/projetopaciente/model/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/br/com/projetopaciente/model/Paciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/cadastrarpaciente.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/cadastrarpaciente.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/navbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/navbar.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="28i1fca2T9HyqptmvnJbCKeVHvf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="378c375d-8dbe-4e41-8b17-2cd61d0e32a1" name="Changes" comment="" />
+      <created>1651684700703</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651684700703</updated>
+      <workItem from="1651684705668" duration="109000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

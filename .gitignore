@@ -1,3 +1,4 @@
-/web/
-/build/
-/nbproject/
+/nbproject/private/
+/dist/
+/build/web/META-INF/
+/build/web/WEB-INF/

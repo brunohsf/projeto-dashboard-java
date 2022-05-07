@@ -36,25 +36,20 @@ public class PacienteDAOImpl implements GenericDAO {
         Paciente paciente = (Paciente) object;
         PreparedStatement stmt = null;
 
-        String sql = "insert into paciente (nome, endereco, tiposanguineo, peso, cidade, uf, cep) values (?,?,?,?,?,?,?);";
+        String sql = "insert into paciente (idcadastro, idtiposanguineo, peso) values (?,?,?);";
 
         try {
             stmt = conn.prepareStatement(sql);
             
-            stmt.setString(1, paciente.getNome());
-            stmt.setString(2, paciente.getEndereco());
-            stmt.setString(3, paciente.getTipoSanguineo());
-            stmt.setDouble(4, paciente.getPeso());
-            stmt.setString(5, paciente.getCidade());
-            stmt.setString(6, paciente.getUf());
-            stmt.setString(7, paciente.getCep());
-            
+            stmt.setInt(1, new CadastroDAOImpl().cadastrar(paciente, paciente.getEndereco()));
+            stmt.setInt(2, paciente.getTipoSanguineo());
+            stmt.setDouble(3, paciente.getPeso());
             stmt.execute();
 
             return true;
 
         } catch (Exception e) {
-            System.out.println("Problemas ao cadatrar produto! Erro: " + e.getMessage());
+            System.out.println("Problemas ao cadatrar paciente! Erro: " + e.getMessage());
             e.printStackTrace();
             return false;
         } finally {
