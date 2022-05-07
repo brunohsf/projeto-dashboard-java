@@ -27,7 +27,6 @@
                             <th>Endereco</th>
                             <th>Cidade</th>
                             <th>UF</th>
-                            <th>CEP</th>
                         </tr>
                     </thead>                    
                     <tbody>
@@ -37,22 +36,19 @@
                         %>
                         <tr>
                             <td align="center">
-                                <%=paciente.getId()%>
+                                <%=paciente.getIdPaciente()%>
                             </td>
                             <td align="center">
                                 <%=paciente.getNome()%>
                             </td>
                             <td align="center">
-                                <%=endereco.getEndereco()%>
+                                <%=paciente.getEndereco().getEndereco()%>
                             </td>
                             <td align="center">
-                                <%=endereco.getCidade()%>
+                                <%=paciente.getEndereco().getCidade()%>
                             </td>
                             <td align="center">
-                                <%=uf.getUf()%>
-                            </td>                                                    
-                            <td align="center">
-                                <%=endereco.getCep()%>
+                                <%=paciente.getEndereco().getUf().getUf()%>
                             </td>
                         </tr>
                         <% } %>

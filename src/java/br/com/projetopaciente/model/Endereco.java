@@ -18,6 +18,12 @@ public class Endereco {
         this.cidade = cidade;
         this.uf = uf;
     }   
+
+    public Endereco(String endereco, String cidade, String uf) {
+        this.endereco = endereco;
+        this.cidade = cidade;
+        this.uf = new Uf(uf);
+    }
     
 
     public Integer getIdEndereco() {

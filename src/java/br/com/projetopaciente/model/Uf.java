@@ -18,6 +18,10 @@ public class Uf {
         this.idUf = idUf;
     }
 
+    public Uf(String uf) {
+        this.uf = uf;
+    }
+
     public Integer getIdUf() {
         return idUf;
     }

@@ -69,9 +69,6 @@ public class PacienteDAOImpl implements GenericDAO {
     public List<Object> listar() {
 
         List<Object> pacientes = new ArrayList();
-        List<Object> enderecos = new ArrayList();
-        List<Object> ufs = new ArrayList();
-
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
@@ -85,17 +82,10 @@ public class PacienteDAOImpl implements GenericDAO {
             while (rs.next()) {
 
                 Paciente paciente = new Paciente();
-                Endereco endereco = new Endereco();
-                Uf uf = new Uf();
-                paciente.setIdPaciente(rs.getInt("id"));
+                paciente.setIdPaciente(rs.getInt("idpaciente"));
                 paciente.setNome(rs.getString("nome"));
-                endereco.setEndereco(rs.getString("endereco"));
-                endereco.setCidade(rs.getString("cidade"));
-                uf.setUf(rs.getString("uf"));
-                endereco.setCep(rs.getString("cep"));
+                paciente.setEndereco(new Endereco(paciente.getEndereco().getEndereco(), paciente.getEndereco().getCidade(), paciente.getEndereco().getUf().getUf()));                
                 pacientes.add(paciente);
-                enderecos.add(endereco);
-                ufs.add(uf);
 
             }
 
