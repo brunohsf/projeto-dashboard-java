@@ -6,18 +6,19 @@ public class Endereco {
     private String endereco;
     private String cep;
     private String cidade;
-    private Integer idUf;
+    private Uf uf;
 
     public Endereco() {
     }
 
-    public Endereco(Integer idEndereco, String endereco, String cep, String cidade, Integer idUf) {
+    public Endereco(Integer idEndereco, String endereco, String cep, String cidade, Uf uf) {
         this.idEndereco = idEndereco;
         this.endereco = endereco;
         this.cep = cep;
         this.cidade = cidade;
-        this.idUf = idUf;
-    }
+        this.uf = uf;
+    }   
+    
 
     public Integer getIdEndereco() {
         return idEndereco;
@@ -51,13 +52,17 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    public Integer getIdUf() {
-        return idUf;
+    public Uf getUf() {
+        return uf;
     }
 
-    public void setIdUf(Integer idUf) {
-        this.idUf = idUf;
+    public void setUf(Uf uf) {
+        this.uf = uf;
     }
+
+    
+
+    
 
       
     

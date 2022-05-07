@@ -43,16 +43,16 @@
                                 <%=paciente.getNome()%>
                             </td>
                             <td align="center">
-                                <%=paciente.getEndereco()%>
+                                <%=endereco.getEndereco()%>
                             </td>
                             <td align="center">
-                                <%=paciente.getCidade()%>
+                                <%=endereco.getCidade()%>
                             </td>
                             <td align="center">
-                                <%=paciente.getUf()%>
+                                <%=uf.getUf()%>
                             </td>                                                    
                             <td align="center">
-                                <%=paciente.getCep()%>
+                                <%=endereco.getCep()%>
                             </td>
                         </tr>
                         <% } %>

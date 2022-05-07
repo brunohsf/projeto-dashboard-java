@@ -14,6 +14,10 @@ public class Uf {
         this.uf = uf;
     }
 
+    public Uf(Integer idUf) {
+        this.idUf = idUf;
+    }
+
     public Integer getIdUf() {
         return idUf;
     }

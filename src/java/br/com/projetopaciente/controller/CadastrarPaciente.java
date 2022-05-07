@@ -7,6 +7,7 @@ import br.com.projetopaciente.dao.PacienteDAOImpl;
 import br.com.projetopaciente.model.Endereco;
 import br.com.projetopaciente.model.Paciente;
 import br.com.projetopaciente.model.TipoSanguineo;
+import br.com.projetopaciente.model.Uf;
 import static com.oracle.wls.shaded.org.apache.xalan.xsltc.compiler.util.Type.Int;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,7 +31,7 @@ public class CadastrarPaciente extends HttpServlet {
         Double peso = Double.parseDouble(request.getParameter("peso"));
         endereco.setEndereco(request.getParameter("endereco"));
         endereco.setCidade(request.getParameter("cidade"));
-        endereco.setIdUf(Integer.parseInt(request.getParameter("idUf")));
+        endereco.setUf(new Uf(Integer.parseInt(request.getParameter("idUf"))));
         endereco.setCep(request.getParameter("cep"));
         
         String mensagem = null;

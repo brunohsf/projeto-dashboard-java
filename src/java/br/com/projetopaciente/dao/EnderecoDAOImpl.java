@@ -33,7 +33,7 @@ public class EnderecoDAOImpl implements GenericDAO {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, endereco.getEndereco());
             stmt.setString(2, endereco.getCep());
-            stmt.setInt(3, endereco.getIdUf());
+            stmt.setInt(3, endereco.getUf().getIdUf());
             stmt.setString(4, endereco.getCidade());
             rs = stmt.executeQuery();
             if (rs.next()) {

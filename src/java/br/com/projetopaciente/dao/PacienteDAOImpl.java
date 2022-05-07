@@ -5,7 +5,9 @@
  */
 package br.com.projetopaciente.dao;
 
+import br.com.projetopaciente.model.Endereco;
 import br.com.projetopaciente.model.Paciente;
+import br.com.projetopaciente.model.Uf;
 import br.com.projetopaciente.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +23,7 @@ public class PacienteDAOImpl implements GenericDAO {
 
     private Connection conn;
 
-     public PacienteDAOImpl() throws Exception {
+    public PacienteDAOImpl() throws Exception {
         try {
             this.conn = ConnectionFactory.getConnection();
             System.out.println("Conectado com sucesso!");
@@ -29,7 +31,7 @@ public class PacienteDAOImpl implements GenericDAO {
             throw new Exception(e.getMessage());
         }
     }
-    
+
     @Override
     public Boolean cadastrar(Object object) {
 
@@ -40,7 +42,7 @@ public class PacienteDAOImpl implements GenericDAO {
 
         try {
             stmt = conn.prepareStatement(sql);
-            
+
             stmt.setInt(1, new CadastroDAOImpl().cadastrar(paciente, paciente.getEndereco()));
             stmt.setInt(2, paciente.getTipoSanguineo());
             stmt.setDouble(3, paciente.getPeso());
@@ -65,12 +67,15 @@ public class PacienteDAOImpl implements GenericDAO {
 
     @Override
     public List<Object> listar() {
-        
+
         List<Object> pacientes = new ArrayList();
+        List<Object> enderecos = new ArrayList();
+        List<Object> ufs = new ArrayList();
+
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        String sql = "select id, nome, endereco, cidade, uf, cep from paciente";
+        String sql = "select p.idpaciente, c.nome, e.endereco, e.cidade, u.uf  from paciente as p inner join cadastro as c on p.idcadastro = c.idcadastro inner join endereco as e on c.idendereco = e.idendereco inner join uf as u on e.iduf = u.iduf";
 
         try {
 
@@ -80,13 +85,17 @@ public class PacienteDAOImpl implements GenericDAO {
             while (rs.next()) {
 
                 Paciente paciente = new Paciente();
-                paciente.setId(rs.getInt("id"));
+                Endereco endereco = new Endereco();
+                Uf uf = new Uf();
+                paciente.setIdPaciente(rs.getInt("id"));
                 paciente.setNome(rs.getString("nome"));
-                paciente.setEndereco(rs.getString("endereco"));
-                paciente.setCidade(rs.getString("cidade"));
-                paciente.setUf(rs.getString("uf"));
-                paciente.setCep(rs.getString("cep"));
+                endereco.setEndereco(rs.getString("endereco"));
+                endereco.setCidade(rs.getString("cidade"));
+                uf.setUf(rs.getString("uf"));
+                endereco.setCep(rs.getString("cep"));
                 pacientes.add(paciente);
+                enderecos.add(endereco);
+                ufs.add(uf);
 
             }
 
@@ -103,7 +112,7 @@ public class PacienteDAOImpl implements GenericDAO {
 
         }
         return pacientes;
-        
+
     }
 
     @Override
