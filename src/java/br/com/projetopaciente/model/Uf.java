@@ -20,7 +20,7 @@ public class Uf {
 
     public Uf(String uf) {
         this.uf = uf;
-    }
+    }    
 
     public Integer getIdUf() {
         return idUf;

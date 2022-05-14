@@ -3,7 +3,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 
 <%@include file="navbar.jsp" %>
-
+<!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <h1 align="center"> Listar Pacientes </h1>
 <hr>
 

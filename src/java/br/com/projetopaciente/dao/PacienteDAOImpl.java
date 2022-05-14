@@ -84,7 +84,7 @@ public class PacienteDAOImpl implements GenericDAO {
                 Paciente paciente = new Paciente();
                 paciente.setIdPaciente(rs.getInt("idpaciente"));
                 paciente.setNome(rs.getString("nome"));
-                paciente.setEndereco(new Endereco(paciente.getEndereco().getEndereco(), paciente.getEndereco().getCidade(), paciente.getEndereco().getUf().getUf()));                
+                paciente.setEndereco(new Endereco(rs.getString("endereco"), rs.getString("cidade"), rs.getString("uf")));                
                 pacientes.add(paciente);
 
             }
