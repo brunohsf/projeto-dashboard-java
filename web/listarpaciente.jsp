@@ -4,7 +4,7 @@
 
 <%@include file="navbar.jsp" %>
 <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <h1 align="center"> Listar Pacientes </h1>
 <hr>
 
@@ -23,11 +23,12 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Nome</th>
                             <th>Endereco</th>
                             <th>Cidade</th>
                             <th>UF</th>
+                            <th></th>
+
                         </tr>
                     </thead>                    
                     <tbody>
@@ -36,9 +37,8 @@
                                 for (Paciente paciente : pacientes) {
                         %>
                         <tr>
-                            <td align="center">
-                                <%=paciente.getIdPaciente()%>
-                            </td>
+
+
                             <td align="center">
                                 <%=paciente.getNome()%>
                             </td>
@@ -51,6 +51,11 @@
                             <td align="center">
                                 <%=paciente.getEndereco().getUf().getUf()%>
                             </td>
+                            <td align="center">
+                                <a href="CarregarPaciente?idPaciente=<%=paciente.getIdPaciente()%>">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
                         </tr>
                         <% } %>
                     </tbody>
@@ -62,8 +67,6 @@
 </div>
 <!-- /.container-fluid -->
 
-</div>
-<!-- End of Main Content -->
 
 <%@include file="footer.jsp" %>
 

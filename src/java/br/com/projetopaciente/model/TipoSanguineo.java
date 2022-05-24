@@ -20,6 +20,10 @@ public class TipoSanguineo {
     public TipoSanguineo(String tipoSanguineo) {
         this.tipoSanguineo = tipoSanguineo;
     }    
+
+    public TipoSanguineo(int idTipoSanguineo) {
+        this.idTipoSanguineo = idTipoSanguineo;
+    }
     
     public Integer getIdTipoSanguineo() {
         return idTipoSanguineo;

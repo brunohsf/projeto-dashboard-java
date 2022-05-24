@@ -9,27 +9,27 @@
 
 <div class="container">
 
-    <form name="cadastrarpaciente" action="CadastrarPaciente" method="POST" class="needs-validation" novalidate>
+    <form name="alteraraciente" action="AlterarPaciente" method="POST" class="needs-validation" novalidate>
 
 
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" required>
+                <input type="text" class="form-control" id="nome" name="nome" required value="${paciente.nome}">
                 <div class="invalid-feedback">
                     Por favor, informe um nome.
                 </div>
             </div>
             <div class="form-group col-md-2">
                 <label for="peso">Peso</label>
-                <input type="text" id="peso" class="form-control" name="peso" required>
+                <input type="text" id="peso" class="form-control" name="peso" required value="${paciente.peso}">
                 <div class="invalid-feedback">
                     Por favor, informe o peso.
                 </div>
             </div>
             <div class="form-group col-md-2">
                 <label for="tiposanguineo">Tipo Sanguineo</label>
-                <select name="idTipoSanguineo" class="form-control" required>
+                <select name="idTipoSanguineo" class="form-control" required value="${paciente.tipoSanguineo.idTipoSanguineo}">
                     <c:forEach var="tiposanguineo" items="${tiposanguineos}">
                         <option value="${tiposanguineo.idTipoSanguineo}">${tiposanguineo.tipoSanguineo}</option>
                     </c:forEach>
@@ -41,7 +41,7 @@
         </div>
         <div class="form-group">
             <label for="endereco">Endereço</label>
-            <input type="text" class="form-control" id="endereco" name="endereco" required>
+            <input type="text" class="form-control" id="endereco" name="endereco" required value="${paciente.endereco.endereco}">
             <div class="invalid-feedback">
                 Por favor, informe o endereço.
             </div>
@@ -49,14 +49,14 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="cidade">Cidade</label>
-                <input type="text" class="form-control" id="cidade" name="cidade" required>
+                <input type="text" class="form-control" id="cidade" name="cidade" required value="${paciente.endereco.cidade}">
                 <div class="invalid-feedback">
                     Por favor, informe a cidade.
                 </div>
             </div>
             <div class="form-group col-md-4">
                 <label for="uf">Estado</label>
-                <select name="idUf" class="form-control" required>
+                <select name="idUf" class="form-control" required value="${paciente.endereco.uf.idUf}">
                     <c:forEach var="uf" items="${ufs}">
                         <option value="${uf.idUf}">${uf.uf}</option>
                     </c:forEach>
@@ -67,7 +67,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="cep">CEP</label>
-                <input type="text" class="cep form-control" id="cep" name="cep" data-mask="00000-000" required>
+                <input type="text" class="cep form-control" id="cep" name="cep" data-mask="00000-000" required value="${paciente.endereco.cep}">
                 <div class="invalid-feedback">
                     Por favor, informe um CEP.
                 </div>

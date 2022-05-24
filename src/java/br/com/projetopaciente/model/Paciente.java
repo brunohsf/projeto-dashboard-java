@@ -12,17 +12,17 @@ package br.com.projetopaciente.model;
 public class Paciente extends Cadastro{
 
     private int idPaciente;
-    private Integer tipoSanguineo;
+    private TipoSanguineo tipoSanguineo;
     private double peso;
 
     public Paciente() {
     }
 
-    public Paciente(int idPaciente, Integer tipoSanguineo, double peso) {
+    public Paciente(int idPaciente, TipoSanguineo tipoSanguineo, double peso) {
         this.idPaciente = idPaciente;
         this.tipoSanguineo = tipoSanguineo;
         this.peso = peso;
-    }
+    }    
 
     public int getIdPaciente() {
         return idPaciente;
@@ -32,14 +32,14 @@ public class Paciente extends Cadastro{
         this.idPaciente = idPaciente;
     }
 
-    public Integer getTipoSanguineo() {
+    public TipoSanguineo getTipoSanguineo() {
         return tipoSanguineo;
     }
 
-    public void setTipoSanguineo(Integer tipoSanguineo) {
+    public void setTipoSanguineo(TipoSanguineo tipoSanguineo) {
         this.tipoSanguineo = tipoSanguineo;
     }
-
+    
     public double getPeso() {
         return peso;
     }

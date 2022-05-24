@@ -7,6 +7,7 @@ package br.com.projetopaciente.dao;
 
 import br.com.projetopaciente.model.Endereco;
 import br.com.projetopaciente.model.Paciente;
+import br.com.projetopaciente.model.TipoSanguineo;
 import br.com.projetopaciente.model.Uf;
 import br.com.projetopaciente.util.ConnectionFactory;
 import java.sql.Connection;
@@ -44,7 +45,7 @@ public class PacienteDAOImpl implements GenericDAO {
             stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, new CadastroDAOImpl().cadastrar(paciente, paciente.getEndereco()));
-            stmt.setInt(2, paciente.getTipoSanguineo());
+            stmt.setInt(2, paciente.getTipoSanguineo().getIdTipoSanguineo());
             stmt.setDouble(3, paciente.getPeso());
             stmt.execute();
 
@@ -84,7 +85,7 @@ public class PacienteDAOImpl implements GenericDAO {
                 Paciente paciente = new Paciente();
                 paciente.setIdPaciente(rs.getInt("idpaciente"));
                 paciente.setNome(rs.getString("nome"));
-                paciente.setEndereco(new Endereco(rs.getString("endereco"), rs.getString("cidade"), rs.getString("uf")));                
+                paciente.setEndereco(new Endereco(rs.getString("endereco"), rs.getString("cidade"), rs.getString("uf")));
                 pacientes.add(paciente);
 
             }
@@ -111,12 +112,50 @@ public class PacienteDAOImpl implements GenericDAO {
     }
 
     @Override
-    public Object carregar(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Object carregar(int idPaciente) {
+
+        Paciente paciente = new Paciente();
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        String sql = "select p.idpaciente, c.nome, p.peso, ts.idtiposanguineo, e.endereco, e.cidade, u.uf, e.cep from paciente as p inner join cadastro as c on p.idcadastro = c.idcadastro inner join endereco as e on c.idendereco = e.idendereco inner join uf as u on e.iduf = u.iduf inner join tiposanguineo as ts on ts.idtiposanguineo = p.idtiposanguineo where p.idpaciente = ?";
+
+        try {
+
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, idPaciente);
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+
+                paciente.setIdPaciente(rs.getInt("idpaciente"));
+                paciente.setNome(rs.getString("nome"));
+                paciente.setPeso(rs.getDouble("peso"));
+                paciente.setTipoSanguineo(new TipoSanguineo(rs.getInt("idtiposanguineo")));
+                paciente.setEndereco(new Endereco(rs.getString("endereco"), rs.getString("cidade"), rs.getString("uf")));
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("Problemas ao listar paciente! Erro: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception e) {
+                System.out.println("Problemas ao fechar conexão! Erro: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        return paciente;
     }
 
     @Override
-    public Boolean alterar(Object object) {
+    public Boolean alterar(Object object
+    ) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
