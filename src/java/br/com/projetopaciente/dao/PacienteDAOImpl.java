@@ -108,7 +108,28 @@ public class PacienteDAOImpl implements GenericDAO {
 
     @Override
     public Boolean excluir(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        PreparedStatement stmt = null;
+        String sql = "delete from paciente where idpaciente = ?;";
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            stmt.executeUpdate();
+            new CadastroDAOImpl().excluir(idObject);
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Problemas ao excluir o paciente! Erro" 
+                    + ex.getMessage());
+            ex.printStackTrace();
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception e) {
+                System.out.println("Problemas ao fechar a conexão! Erro: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -135,7 +156,7 @@ public class PacienteDAOImpl implements GenericDAO {
                 paciente.setNome(rs.getString("nome"));
                 paciente.setPeso(rs.getDouble("peso"));
                 paciente.setTipoSanguineo(new TipoSanguineo(rs.getInt("idtiposanguineo"), rs.getString("tiposanguineo")));
-                paciente.setEndereco(new Endereco(rs.getString("endereco"),rs.getString("cep"), rs.getString("cidade"), rs.getInt("iduf"), rs.getString("uf")));
+                paciente.setEndereco(new Endereco(rs.getString("endereco"), rs.getString("cidade"),rs.getString("cep"), rs.getInt("iduf"), rs.getString("uf")));
 
             }
 
@@ -150,6 +171,9 @@ public class PacienteDAOImpl implements GenericDAO {
                 e.printStackTrace();
             }
         }
+        
+        System.out.println(paciente.getEndereco().getCep());
+        
         return paciente;
     }
 

@@ -58,7 +58,28 @@ public class CadastroDAOImpl implements GenericDAO {
 
     @Override
     public Boolean excluir(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        PreparedStatement stmt = null;
+        String sql = "delete from cadastro where idcadastro = ?;";
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            stmt.executeUpdate();
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Problemas ao excluir o cadastro! Erro" 
+                    + ex.getMessage());
+            ex.printStackTrace();
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception e) {
+                System.out.println("Problemas ao fechar a conexão! Erro: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        
     }
 
     @Override

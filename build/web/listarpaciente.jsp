@@ -28,7 +28,7 @@
                             <th>Cidade</th>
                             <th>UF</th>
                             <th></th>
-
+                            <th></th>
                         </tr>
                     </thead>                    
                     <tbody>
@@ -54,6 +54,11 @@
                             <td align="center">
                                 <a href="CarregarPaciente?idPaciente=<%=paciente.getIdPaciente()%>">
                                     <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                            <td align="center">
+                                <a href="EliminarPaciente?idPaciente=<%=paciente.getIdPaciente()%>">
+                                    <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>
                         </tr>

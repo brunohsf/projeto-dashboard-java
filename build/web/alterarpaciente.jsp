@@ -9,7 +9,7 @@
 
 <div class="container">
 
-    <form name="alteraraciente" action="AlterarPaciente" method="POST" class="needs-validation" novalidate>
+    <form name="alteraraciente" action="AlterarPaciente?idPaciente=${paciente.idPaciente}" method="POST" class="needs-validation" novalidate>
 
 
         <div class="form-row">
@@ -75,7 +75,10 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Gravar</button>        
+        </div>
+
 
     </form>
 

@@ -6,12 +6,8 @@ package br.com.projetopaciente.controller;
 
 import br.com.projetopaciente.dao.GenericDAO;
 import br.com.projetopaciente.dao.PacienteDAOImpl;
-import br.com.projetopaciente.dao.TipoSanguineoDAOImpl;
-import br.com.projetopaciente.dao.UfDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,34 +18,46 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author BrunoHenrique
  */
-@WebServlet(name = "CarregarPaciente", urlPatterns = {"/CarregarPaciente"})
-public class CarregarPaciente extends HttpServlet {
+@WebServlet(name = "EliminarPaciente", urlPatterns = {"/EliminarPaciente"})
+public class EliminarPaciente extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             
-            Integer idPaciente = Integer.parseInt(request.getParameter("idPaciente"));
-
-            GenericDAO daoTipoSanguineo = new TipoSanguineoDAOImpl();
-            request.setAttribute("tiposanguineos", daoTipoSanguineo.listar());
-            System.out.println("Setou tipo sanguineo");
+            Integer idPaciente = Integer.parseInt(request.getParameter("idPaciente"));            
             
-            GenericDAO daoUF = new UfDAOImpl();
-            request.setAttribute("ufs", daoUF.listar());
-            System.out.println("Setou uf");
+            String mensagem = null;
             
-            GenericDAO daoPaciente = new PacienteDAOImpl();
-            request.setAttribute("paciente", daoPaciente.carregar(idPaciente));
-            System.out.println("Setou paciente");
+            try{
+                GenericDAO dao = new PacienteDAOImpl();
+                if(dao.excluir(idPaciente)){
+                    mensagem = "Paciente excluído com sucesso!";
+                }else{
+                    mensagem = "Problemas ao excluir paciente!";
+                }
+                request.setAttribute("mensagem", mensagem);
+                request.getRequestDispatcher("ListarPaciente").forward(request, response);
+            }catch(Exception e){
+                System.out.println("Problemas no Servlet ao excluir o produto! "
+                        + "Erro: " + e.getMessage());
+                e.printStackTrace();
+            }
             
             
-            request.getRequestDispatcher("alterarpaciente.jsp").forward(request, response);
             
         }
     }
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -63,11 +71,7 @@ public class CarregarPaciente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(CarregarPaciente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -81,11 +85,7 @@ public class CarregarPaciente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(CarregarPaciente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
