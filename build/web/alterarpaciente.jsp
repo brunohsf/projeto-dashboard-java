@@ -30,6 +30,7 @@
             <div class="form-group col-md-2">
                 <label for="tiposanguineo">Tipo Sanguineo</label>
                 <select name="idTipoSanguineo" class="form-control" required value="${paciente.tipoSanguineo.idTipoSanguineo}">
+                    <option selcted value="${paciente.tipoSanguineo.idTipoSanguineo}">${paciente.tipoSanguineo.tipoSanguineo}</option>
                     <c:forEach var="tiposanguineo" items="${tiposanguineos}">
                         <option value="${tiposanguineo.idTipoSanguineo}">${tiposanguineo.tipoSanguineo}</option>
                     </c:forEach>
@@ -56,9 +57,10 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="uf">Estado</label>
-                <select name="idUf" class="form-control" required value="${paciente.endereco.uf.idUf}">
-                    <c:forEach var="uf" items="${ufs}">
-                        <option value="${uf.idUf}">${uf.uf}</option>
+                <select name="idUf" class="form-control" required>           
+                    <option selected value="${paciente.endereco.uf.idUf}">${paciente.endereco.uf.uf}</option>
+                    <c:forEach var="uf" items="${ufs}">                        
+                        <option value="${uf.idUf}">${uf.uf}</option>                        
                     </c:forEach>
                 </select>
                 <div class="invalid-feedback">
@@ -67,7 +69,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="cep">CEP</label>
-                <input type="text" class="cep form-control" id="cep" name="cep" data-mask="00000-000" required value="${paciente.endereco.cep}">
+                <input type="text" class="cep form-control" id="cep" name="cep" required value="${paciente.endereco.cep}">
                 <div class="invalid-feedback">
                     Por favor, informe um CEP.
                 </div>

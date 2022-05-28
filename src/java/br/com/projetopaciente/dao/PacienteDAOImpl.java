@@ -73,7 +73,7 @@ public class PacienteDAOImpl implements GenericDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        String sql = "select p.idpaciente, c.nome, e.endereco, e.cidade, u.uf  from paciente as p inner join cadastro as c on p.idcadastro = c.idcadastro inner join endereco as e on c.idendereco = e.idendereco inner join uf as u on e.iduf = u.iduf";
+        String sql = "select p.idpaciente, c.nome, e.endereco, e.cidade,u.iduf, u.uf  from paciente as p inner join cadastro as c on p.idcadastro = c.idcadastro inner join endereco as e on c.idendereco = e.idendereco inner join uf as u on e.iduf = u.iduf";
 
         try {
 
@@ -85,7 +85,7 @@ public class PacienteDAOImpl implements GenericDAO {
                 Paciente paciente = new Paciente();
                 paciente.setIdPaciente(rs.getInt("idpaciente"));
                 paciente.setNome(rs.getString("nome"));
-                paciente.setEndereco(new Endereco(rs.getString("endereco"), rs.getString("cidade"), rs.getString("uf")));
+                paciente.setEndereco(new Endereco(rs.getString("endereco"), rs.getString("cidade"), rs.getInt("iduf"), rs.getString("uf")));
                 pacientes.add(paciente);
 
             }
@@ -119,7 +119,7 @@ public class PacienteDAOImpl implements GenericDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        String sql = "select p.idpaciente, c.nome, p.peso, ts.idtiposanguineo, e.endereco, e.cidade, u.uf, e.cep from paciente as p inner join cadastro as c on p.idcadastro = c.idcadastro inner join endereco as e on c.idendereco = e.idendereco inner join uf as u on e.iduf = u.iduf inner join tiposanguineo as ts on ts.idtiposanguineo = p.idtiposanguineo where p.idpaciente = ?";
+        String sql = "select p.idpaciente, c.nome, p.peso, ts.idtiposanguineo, ts.tiposanguineo, e.endereco, e.cidade,u.iduf, u.uf, e.cep from paciente as p inner join cadastro as c on p.idcadastro = c.idcadastro inner join endereco as e on c.idendereco = e.idendereco inner join uf as u on e.iduf = u.iduf inner join tiposanguineo as ts on ts.idtiposanguineo = p.idtiposanguineo where p.idpaciente = ?";
 
         try {
 
@@ -134,8 +134,8 @@ public class PacienteDAOImpl implements GenericDAO {
                 paciente.setIdPaciente(rs.getInt("idpaciente"));
                 paciente.setNome(rs.getString("nome"));
                 paciente.setPeso(rs.getDouble("peso"));
-                paciente.setTipoSanguineo(new TipoSanguineo(rs.getInt("idtiposanguineo")));
-                paciente.setEndereco(new Endereco(rs.getString("endereco"), rs.getString("cidade"), rs.getString("uf")));
+                paciente.setTipoSanguineo(new TipoSanguineo(rs.getInt("idtiposanguineo"), rs.getString("tiposanguineo")));
+                paciente.setEndereco(new Endereco(rs.getString("endereco"),rs.getString("cep"), rs.getString("cidade"), rs.getInt("iduf"), rs.getString("uf")));
 
             }
 

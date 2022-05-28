@@ -1,7 +1,7 @@
-
 package br.com.projetopaciente.model;
 
 public class Endereco {
+
     private Integer idEndereco;
     private String endereco;
     private String cep;
@@ -17,14 +17,19 @@ public class Endereco {
         this.cep = cep;
         this.cidade = cidade;
         this.uf = uf;
-    }   
+    }
 
-    public Endereco(String endereco, String cidade, String uf) {
+    public Endereco(String endereco, String cidade, Integer idUf, String uf) {
+        this.endereco = endereco;
+        this.cidade = cidade;        
+        this.uf = new Uf(idUf, uf);
+    }
+    public Endereco(String endereco, String cidade, String cep, Integer idUf, String uf) {
         this.endereco = endereco;
         this.cidade = cidade;
-        this.uf = new Uf(uf);
+        this.cep = cep;
+        this.uf = new Uf(idUf, uf);
     }
-    
 
     public Integer getIdEndereco() {
         return idEndereco;
@@ -66,11 +71,4 @@ public class Endereco {
         this.uf = uf;
     }
 
-    
-
-    
-
-      
-    
-           
 }
